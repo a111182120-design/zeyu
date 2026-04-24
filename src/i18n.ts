@@ -9,14 +9,14 @@ export const translations = {
     },
     hero: {
       available: "Available for Summer Internships",
-      name: "Ethan Chen.",
+      name: "Zeyu.",
       role: "Creative Dev.",
       desc: "A 19-year-old developer crafting beautiful and functional digital experiences. Bridging the gap between design and engineering."
     },
     about: {
       subtitle: "01. About",
       title: "Background & Education",
-      p1: "Hello! I'm Ethan, a 19-year-old Computer Science undergraduate deeply passionate about web technologies and artificial intelligence. I enjoy building applications that live on the internet, focusing on clean code and pixel-perfect design.",
+      p1: "Hello! I'm Zeyu, a 19-year-old Computer Science undergraduate deeply passionate about web technologies and artificial intelligence. I enjoy building applications that live on the internet, focusing on clean code and pixel-perfect design.",
       p2: "My journey into tech started when I realized that with code, I could bring the ideas in my head to life. Since then, I've been constantly learning and experimenting.",
       academicLife: "Academic Life",
       uni: "National Tech University",
@@ -78,14 +78,14 @@ export const translations = {
     },
     hero: {
       available: "接受暑期實習邀請",
-      name: "Ethan Chen.",
+      name: "則宇",
       role: "創意開發者",
       desc: "十九歲的開發者，致力於打造美觀且實用的數位體驗，在設計與工程之間建立橋樑。"
     },
     about: {
       subtitle: "01. 關於我",
       title: "背景與學業",
-      p1: "你好！我是 Ethan，一位 19 歲的大學計算機科學系學生，對網頁技術和人工智慧充滿熱情。我喜歡建立在網路上運作的應用程式，專注於乾淨的程式碼與完美的設計細節。",
+      p1: "你好！我是 則宇，一位 19 歲的大學計算機科學系學生，對網頁技術和人工智慧充滿熱情。我喜歡建立在網路上運作的應用程式，專注於乾淨的程式碼與完美的設計細節。",
       p2: "當我意識到我可以透過程式碼將腦海中的想法化為現實時，便開啟了我的科技之旅。從那時起，我不斷地學習與實驗。",
       academicLife: "學術生活",
       uni: "國立科技大學",
