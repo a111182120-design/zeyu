@@ -66,7 +66,7 @@ export const translations = {
       formSend: "Send Message",
       formSending: "Sending...",
       formSuccess: "Message sent! I will get back to you soon.",
-      designedBy: "Designed & Built by Ethan Chen © 2026",
+      designedBy: "Designed & Built by zeyu © 2026",
       aiTip: "Ask my AI assistant using the button below for immediate answers in any language."
     }
   },
