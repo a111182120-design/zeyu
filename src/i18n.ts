@@ -135,7 +135,7 @@ export const translations = {
       formSend: "發送訊息",
       formSending: "發送中...",
       formSuccess: "訊息已發送！我會盡快回覆您。",
-      designedBy: "由 Ethan Chen 設計開發 © 2026",
+      designedBy: "由 zeyu 設計開發 © 2026",
       aiTip: "有問題嗎？可以使用下方的 AI 助手按鈕用您的語言與我對話。"
     }
   },
