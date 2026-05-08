@@ -1,8 +1,26 @@
 import React, { useState, createContext, useContext } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Github, Linkedin, Mail, Code2, Camera, Compass, BookOpen, Terminal, Sparkles, X, ChevronRight, Check, ExternalLink } from 'lucide-react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 import { ChatWidget } from './components/ChatWidget';
 import { translations, Locale } from './i18n';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+// @ts-ignore
+import travelPdf from './2026 花蓮清明連假：山海慢活四日遊.pdf';
+// @ts-ignore
+import video1 from './Hailuo_Video_Cinematic drone shot of Liyuan_494841349619499015.mp4';
+// @ts-ignore
+import video2 from './Hailuo_Video_Close-up and slow-motion shot _494841601659420675.mp4';
+// @ts-ignore
+import video3 from './Hailuo_Video_Dynamic transition shot starti_494841467991101449.mp4';
+// @ts-ignore
+import video4 from './Hailuo_Video_Wide angle shot of Ruisui Past_494841510429106176.mp4';
+// @ts-ignore
+import avatarImg from './223531.png';
 
 // Language Context
 type LangContextType = {
@@ -24,12 +42,21 @@ function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20 border-b border-slate-200">
       <motion.div 
         style={{ y, opacity }}
-        className="text-center z-10 px-4 max-w-4xl mx-auto"
+        className="text-center z-10 px-4 max-w-4xl mx-auto flex flex-col items-center"
       >
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-8 border border-slate-200 shadow-sm bg-slate-100 flex-shrink-0"
+        >
+          <img src={avatarImg} alt="Profile Avatar" className="w-full h-full object-cover" />
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
           className="mb-8 inline-flex items-center gap-2 px-3 py-1 border border-slate-200 bg-white"
         >
           <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
@@ -73,6 +100,7 @@ function SectionHeading({ title, subtitle }: { title: string, subtitle: string }
 
 function About() {
   const { t } = useLang();
+  const [showTravelLog, setShowTravelLog] = useState(false);
   
   return (
     <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-20 border-b border-slate-200 bg-slate-50" id="about">
@@ -112,8 +140,29 @@ function About() {
              {t.about.hobbies.map((hobby, i) => {
                const icons = [Code2, Camera, Sparkles, Compass];
                const Icon = icons[i % icons.length];
+               if (i === 2) {
+                 return (
+                   <a 
+                     key={i} 
+                     href="https://studio.tripo3d.ai/3d-model/30f2f39a-da0d-44a0-a461-8ee9efc5c434?invite_code=XWYJ38"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="block p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl cursor-pointer group"
+                   >
+                     <Icon size={24} className="text-slate-400 mb-6 group-hover:text-indigo-600 transition-colors" />
+                     <div className="text-sm font-bold text-slate-900 mb-1">{hobby.label}</div>
+                     <div className="text-[10px] uppercase tracking-widest text-slate-500">{hobby.desc}</div>
+                   </a>
+                 )
+               }
                return (
-                 <div key={i} className="p-6 bg-white border border-slate-200 cursor-default group transition-shadow hover:shadow-xl">
+                 <div 
+                   key={i} 
+                   onClick={() => {
+                     if (i === 3) setShowTravelLog(true);
+                   }}
+                   className={`p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl ${i === 3 ? 'cursor-pointer' : 'cursor-default'} group`}
+                 >
                    <Icon size={24} className="text-slate-400 mb-6 group-hover:text-indigo-600 transition-colors" />
                    <div className="text-sm font-bold text-slate-900 mb-1">{hobby.label}</div>
                    <div className="text-[10px] uppercase tracking-widest text-slate-500">{hobby.desc}</div>
@@ -123,7 +172,114 @@ function About() {
            </div>
         </motion.div>
       </div>
+
+      {/* Travel Log Modal */}
+      <AnimatePresence>
+        {showTravelLog && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm"
+            onClick={() => setShowTravelLog(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white border border-slate-200 w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl"
+            >
+              <div className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-200 p-4 flex justify-between items-center z-10">
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-900">Travel Log: Hualien 2026</div>
+                <button onClick={() => setShowTravelLog(false)} className="p-2 text-slate-500 hover:text-slate-900 transition-colors bg-slate-100 hover:bg-slate-200 rounded-sm">
+                  <X size={16} />
+                </button>
+              </div>
+              
+              <div className="p-6 md:p-8 space-y-12">
+                {/* Videos */}
+                <div>
+                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">Cinematic Memories</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[video1, video2, video3, video4].map((videoSrc, idx) => (
+                      <div key={idx} className="bg-slate-100 border border-slate-200 rounded-sm overflow-hidden aspect-video relative group flex items-center justify-center">
+                        <video 
+                          key={videoSrc}
+                          controls 
+                          muted 
+                          loop 
+                          className="w-full h-full object-contain bg-black"
+                        >
+                          <source src={videoSrc} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Itinerary PDF */}
+                <div className="h-[600px] flex flex-col">
+                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6 shrink-0">Itinerary Reference</h4>
+                  <div className="border border-slate-200 rounded-sm flex-1 bg-slate-50 relative overflow-hidden flex flex-col items-center">
+                     <PdfViewer file={travelPdf} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
+  );
+}
+
+function PdfViewer({ file }: { file: string }) {
+  const [numPages, setNumPages] = useState<number>();
+  const [pageNumber, setPageNumber] = useState<number>(1);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
+    setNumPages(numPages);
+  }
+
+  return (
+    <div className="w-full h-full flex flex-col items-center overflow-y-auto p-4 relative">
+      <div className="flex gap-4 items-center mb-4 sticky top-0 z-10 bg-white/90 backdrop-blur-md p-2 border border-slate-200 shadow-sm">
+        <button 
+          onClick={() => setPageNumber(p => Math.max(1, p - 1))}
+          disabled={pageNumber <= 1}
+          className="px-3 py-1 bg-slate-100 text-[10px] tracking-widest font-bold uppercase disabled:opacity-50 hover:bg-slate-200 transition-colors"
+        >
+          Prev
+        </button>
+        <span className="text-[10px] uppercase font-mono tracking-widest text-slate-500">
+          Page {pageNumber} of {numPages || '--'}
+        </span>
+        <button 
+          onClick={() => setPageNumber(p => Math.min(numPages || p, p + 1))}
+          disabled={pageNumber >= (numPages || 1)}
+          className="px-3 py-1 bg-slate-100 text-[10px] tracking-widest font-bold uppercase disabled:opacity-50 hover:bg-slate-200 transition-colors"
+        >
+          Next
+        </button>
+      </div>
+      <Document
+        file={file}
+        onLoadSuccess={onDocumentLoadSuccess}
+        className="w-full flex flex-col items-center"
+        loading={<div className="p-8 text-xs font-bold tracking-widest uppercase text-slate-400">Loading PDF...</div>}
+        error={<div className="p-8 text-xs font-bold tracking-widest uppercase text-red-500">Failed to load PDF. It may be empty or invalid.</div>}
+      >
+        <Page 
+          pageNumber={pageNumber} 
+          width={800}
+          renderTextLayer={true}
+          renderAnnotationLayer={true}
+          className="bg-white border border-slate-200 shadow-xl"
+        />
+      </Document>
+    </div>
   );
 }
 
@@ -398,7 +554,7 @@ export default function App() {
         <nav className="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-sm border-b border-slate-200 py-6 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-indigo-600 rounded-full"></div>
-            <span className="font-bold tracking-widest text-sm uppercase text-slate-900">Ethan Chen / 2026</span>
+            <span className="font-bold tracking-widest text-sm uppercase text-slate-900">ZEYU / 2026</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6 text-[11px] font-bold uppercase tracking-tighter">

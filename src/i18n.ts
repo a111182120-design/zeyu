@@ -9,7 +9,7 @@ export const translations = {
     },
     hero: {
       available: "Available for Summer Internships",
-      name: "Zeyu.",
+      name: "ZEYU.",
       role: "Creative Dev.",
       desc: "A 19-year-old developer crafting beautiful and functional digital experiences. Bridging the gap between design and engineering."
     },
@@ -66,7 +66,7 @@ export const translations = {
       formSend: "Send Message",
       formSending: "Sending...",
       formSuccess: "Message sent! I will get back to you soon.",
-      designedBy: "Designed & Built by zeyu © 2026",
+      designedBy: "Designed & Built by ZEYU © 2026",
       aiTip: "Ask my AI assistant using the button below for immediate answers in any language."
     }
   },
@@ -78,14 +78,14 @@ export const translations = {
     },
     hero: {
       available: "接受暑期實習邀請",
-      name: "則宇",
+      name: "ZEYU.",
       role: "創意開發者",
       desc: "十九歲的開發者，致力於打造美觀且實用的數位體驗，在設計與工程之間建立橋樑。"
     },
     about: {
       subtitle: "01. 關於我",
       title: "背景與學業",
-      p1: "你好！我是 則宇，一位 19 歲的大學計算機科學系學生，對網頁技術和人工智慧充滿熱情。我喜歡建立在網路上運作的應用程式，專注於乾淨的程式碼與完美的設計細節。",
+      p1: "你好！我是 Zeyu，一位 19 歲的大學計算機科學系學生，對網頁技術和人工智慧充滿熱情。我喜歡建立在網路上運作的應用程式，專注於乾淨的程式碼與完美的設計細節。",
       p2: "當我意識到我可以透過程式碼將腦海中的想法化為現實時，便開啟了我的科技之旅。從那時起，我不斷地學習與實驗。",
       academicLife: "學術生活",
       uni: "國立科技大學",
@@ -135,7 +135,7 @@ export const translations = {
       formSend: "發送訊息",
       formSending: "發送中...",
       formSuccess: "訊息已發送！我會盡快回覆您。",
-      designedBy: "由 zeyu 設計開發 © 2026",
+      designedBy: "由 ZEYU 設計開發 © 2026",
       aiTip: "有問題嗎？可以使用下方的 AI 助手按鈕用您的語言與我對話。"
     }
   },
@@ -147,14 +147,14 @@ export const translations = {
     },
     hero: {
       available: "Disponible para Prácticas de Verano",
-      name: "Ethan Chen.",
+      name: "ZEYU.",
       role: "Desarrollador Creativo",
       desc: "Un desarrollador de 19 años creando experiencias digitales hermosas y funcionales. Construyendo puentes entre el diseño y la ingeniería."
     },
     about: {
       subtitle: "01. Sobre Mí",
       title: "Antecedentes y Educación",
-      p1: "¡Hola! Soy Ethan, un estudiante de ciencias de la computación de 19 años profundamente apasionado por las tecnologías web y la inteligencia artificial. Disfruto construir aplicaciones que viven en internet, centrándome en código limpio y un diseño perfecto al píxel.",
+      p1: "¡Hola! Soy Zeyu, un estudiante de ciencias de la computación de 19 años profundamente apasionado por las tecnologías web y la inteligencia artificial. Disfruto construir aplicaciones que viven en internet, centrándome en código limpio y un diseño perfecto al píxel.",
       p2: "Mi viaje hacia la tecnología comenzó cuando me di cuenta de que con el código podía dar vida a las ideas en mi cabeza. Desde entonces, no he dejado de aprender y experimentar.",
       academicLife: "Vida Académica",
       uni: "Universidad Nacional de Tecnología",
@@ -204,7 +204,7 @@ export const translations = {
       formSend: "Enviar Mensaje",
       formSending: "Enviando...",
       formSuccess: "¡Mensaje enviado! Te responderé pronto.",
-      designedBy: "Diseñado y Desarrollado por Ethan Chen © 2026",
+      designedBy: "Diseñado y Desarrollado por ZEYU © 2026",
       aiTip: "Pregúntale a mi asistente de IA usando el botón abajo para obtener respuestas en cualquier idioma."
     }
   }
