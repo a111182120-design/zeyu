@@ -21,6 +21,8 @@ import video3 from './Hailuo_Video_Dynamic transition shot starti_49484146799110
 import video4 from './Hailuo_Video_Wide angle shot of Ruisui Past_494841510429106176.mp4';
 // @ts-ignore
 import avatarImg from './223531.png';
+// @ts-ignore
+import aiImg from './S__153722882.jpg';
 
 // Language Context
 type LangContextType = {
@@ -101,6 +103,7 @@ function SectionHeading({ title, subtitle }: { title: string, subtitle: string }
 function About() {
   const { t } = useLang();
   const [showTravelLog, setShowTravelLog] = useState(false);
+  const [showAiLog, setShowAiLog] = useState(false);
   
   return (
     <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-20 border-b border-slate-200 bg-slate-50" id="about">
@@ -142,17 +145,15 @@ function About() {
                const Icon = icons[i % icons.length];
                if (i === 2) {
                  return (
-                   <a 
+                   <div 
                      key={i} 
-                     href="https://studio.tripo3d.ai/3d-model/30f2f39a-da0d-44a0-a461-8ee9efc5c434?invite_code=XWYJ38"
-                     target="_blank"
-                     rel="noopener noreferrer"
+                     onClick={() => setShowAiLog(true)}
                      className="block p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl cursor-pointer group"
                    >
                      <Icon size={24} className="text-slate-400 mb-6 group-hover:text-indigo-600 transition-colors" />
                      <div className="text-sm font-bold text-slate-900 mb-1">{hobby.label}</div>
                      <div className="text-[10px] uppercase tracking-widest text-slate-500">{hobby.desc}</div>
-                   </a>
+                   </div>
                  )
                }
                return (
@@ -172,6 +173,63 @@ function About() {
            </div>
         </motion.div>
       </div>
+
+      {/* AI Log Modal */}
+      <AnimatePresence>
+        {showAiLog && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm"
+            onClick={() => setShowAiLog(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white border border-slate-200 w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl"
+            >
+              <div className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-200 p-4 flex justify-between items-center z-10">
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-900">AI Experiments</div>
+                <button onClick={() => setShowAiLog(false)} className="p-2 text-slate-500 hover:text-slate-900 transition-colors bg-slate-100 hover:bg-slate-200 rounded-sm">
+                  <X size={16} />
+                </button>
+              </div>
+              
+              <div className="p-6 md:p-8 space-y-12">
+                <div>
+                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">Generated 3D Models</h4>
+                  <div className="flex flex-col md:flex-row gap-4 mb-8">
+                     <a 
+                       href="https://studio.tripo3d.ai/3d-model/30f2f39a-da0d-44a0-a461-8ee9efc5c434?invite_code=XWYJ38"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
+                     >
+                       <Terminal size={16} /> Tripo 3D Model 1
+                     </a>
+                     <a 
+                       href="https://studio.tripo3d.ai/workspace/generate/5530e958-367b-4e90-b641-df33e2fe95ea"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
+                     >
+                       <Sparkles size={16} /> Tripo 3D Model 2
+                     </a>
+                  </div>
+                  
+                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">AI Image Reference</h4>
+                  <div className="border border-slate-200 rounded-sm bg-slate-50 overflow-hidden flex justify-center items-center">
+                    <img src={aiImg} alt="AI Experiment Reference" className="max-w-full max-h-[600px] object-contain" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Travel Log Modal */}
       <AnimatePresence>
