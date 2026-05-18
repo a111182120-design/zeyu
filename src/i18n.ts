@@ -8,24 +8,23 @@ export const translations = {
       contact: "03. Contact"
     },
     hero: {
-      available: "Available for Summer Internships",
-      name: "ZEYU.",
-      role: "Creative Dev.",
-      desc: "A 19-year-old developer crafting beautiful and functional digital experiences. Bridging the gap between design and engineering."
+      available: "Seeking Maritime Training Opportunities",
+      name: "則宇.",
+      role: "Marine Engineering Student",
+      desc: "A dedicated 4th-year student of Marine Engineering with a passion for the ocean and navigation. Committed to excellence in maritime operations."
     },
     about: {
       subtitle: "01. About",
       title: "Background & Education",
-      p1: "Hello! I'm Zeyu, a 19-year-old Computer Science undergraduate deeply passionate about web technologies and artificial intelligence. I enjoy building applications that live on the internet, focusing on clean code and pixel-perfect design.",
-      p2: "My journey into tech started when I realized that with code, I could bring the ideas in my head to life. Since then, I've been constantly learning and experimenting.",
+      p1: "Hello! I'm Zeyu Lai, a fourth-year student in the Department of Marine Engineering. I have been deeply interested in the ocean and maritime work since I was a child.",
+      p2: "I chose to study in a maritime-related department, hoping to become an excellent sailor and professional mariner in the future.",
+      p3: "This experience has given me a deeper understanding of teamwork and discipline among crew members, and has cultivated my calmness and sense of responsibility when facing challenges.",
+      p4: "I have a cheerful personality, am kind to others, and can get along harmoniously with people from different backgrounds. I firmly believe that good communication and teamwork are indispensable elements in maritime work.",
       academicLife: "Academic Life",
-      uni: "National Tech University",
-      degree: "B.S. in Computer Science / 2023 - 2027",
+      uni: "National Kaohsiung University of Science and Technology",
+      degree: "Marine Engineering / 4th Year",
       interests: "Interests & Hobbies",
       hobbies: [
-        { label: "Open Source", desc: "Contributing to React eco" },
-        { label: "Photography", desc: "Street & Architecture" },
-        { label: "AI Experiments", desc: "Playing with LLMs" },
         { label: "Traveling", desc: "Exploring new cultures" }
       ]
     },
@@ -34,22 +33,10 @@ export const translations = {
       title: "Selected Projects",
       projects: [
         {
-          title: "Nova AI Analytics",
-          description: "A dashboard for visualizing AI model performance. Built with React, Tailwind, and D3.js.",
-          tech: ["React", "TypeScript", "D3.js", "Tailwind"],
-          year: "2024"
-        },
-        {
-          title: "Flow State Music",
-          description: "A minimalist Pomodoro timer integrated with lo-fi beats, designed for developers.",
-          tech: ["Next.js", "Framer Motion", "Supabase"],
-          year: "2023"
-        },
-        {
-          title: "Lingo Chatbot",
-          description: "Multilingual translation agent using Gemini API for real-time collaboration chats.",
-          tech: ["Vite", "Gemini API", "Tailwind"],
-          year: "2024"
+          title: "AI Experiments",
+          description: "Exploring the intersection of maritime engineering and artificial intelligence through 3D modeling and generated imagery.",
+          tech: ["Tripo AI", "Generative AI", "3D Modeling"],
+          year: "2026"
         }
       ],
       viewProject: "View Project"
@@ -66,7 +53,7 @@ export const translations = {
       formSend: "Send Message",
       formSending: "Sending...",
       formSuccess: "Message sent! I will get back to you soon.",
-      designedBy: "Designed & Built by ZEYU © 2026",
+      designedBy: "Designed & Built by 則宇 © 2026",
       aiTip: "Ask my AI assistant using the button below for immediate answers in any language."
     }
   },
@@ -77,25 +64,24 @@ export const translations = {
       contact: "03. 聯絡資訊"
     },
     hero: {
-      available: "接受暑期實習邀請",
-      name: "ZEYU.",
-      role: "創意開發者",
-      desc: "十九歲的開發者，致力於打造美觀且實用的數位體驗，在設計與工程之間建立橋樑。"
+      available: "尋求航海實習機會",
+      name: "則宇.",
+      role: "航海科學生",
+      desc: "一名熱愛海洋的航海科四年級學生，致力於學習專業航海知識與海上操作，期許未來能成為一名優秀的船員。"
     },
     about: {
       subtitle: "01. 關於我",
       title: "背景與學業",
-      p1: "你好！我是 Zeyu，一位 19 歲的大學計算機科學系學生，對網頁技術和人工智慧充滿熱情。我喜歡建立在網路上運作的應用程式，專注於乾淨的程式碼與完美的設計細節。",
-      p2: "當我意識到我可以透過程式碼將腦海中的想法化為現實時，便開啟了我的科技之旅。從那時起，我不斷地學習與實驗。",
+      p1: "大家好，我叫賴則宇，我是一名就讀五專航海科四年級的學生。",
+      p2: "從小對海洋與航海工作充滿興趣，因此選擇就讀航海相關科系，希望未來能成為一名優秀的船員。",
+      p3: "這段經驗讓我更了解船員之間的團隊合作與紀律精神，也培養了我在面對挑戰時的冷靜與責任感。",
+      p4: "我個性開朗、待人親切，能夠與不同背景的人和諧相處。我深信良好的溝通與團隊合作是航海工作中不可或缺的要素。",
       academicLife: "學術生活",
-      uni: "國立科技大學",
-      degree: "計算機科學學士 / 2023 - 2027",
+      uni: "國立高雄科技大學",
+      degree: "五專航海科 / 四年級",
       interests: "興趣與嗜好",
       hobbies: [
-        { label: "開源貢獻", desc: "參與 React 生態系" },
-        { label: "攝影", desc: "街頭與建築攝影" },
-        { label: "AI 實驗", desc: "大型語言模型應用" },
-        { label: "旅行", desc: "探索新文化" }
+        { label: "世界旅行", desc: "探索不同港口文化" }
       ]
     },
     work: {
@@ -103,22 +89,10 @@ export const translations = {
       title: "精選專案",
       projects: [
         {
-          title: "Nova AI Analytics",
-          description: "用於視覺化 AI 模型表現的數據儀表板。使用 React, Tailwind 和 D3.js 構建。",
-          tech: ["React", "TypeScript", "D3.js", "Tailwind"],
-          year: "2024"
-        },
-        {
-          title: "Flow State Music",
-          description: "結合 Lo-fi 音樂的極簡番茄鐘，專為工程師設計。",
-          tech: ["Next.js", "Framer Motion", "Supabase"],
-          year: "2023"
-        },
-        {
-          title: "Lingo Chatbot",
-          description: "使用 Gemini API 打造的多語言即時翻譯協助機器人。",
-          tech: ["Vite", "Gemini API", "Tailwind"],
-          year: "2024"
+          title: "AI 實踐與實驗",
+          description: "探索航海工程與人工智慧的交匯點，包含 3D 模型生成與 AI 影像應用。",
+          tech: ["Tripo AI", "Generative AI", "3D Modeling"],
+          year: "2026"
         }
       ],
       viewProject: "檢視專案"
@@ -135,7 +109,7 @@ export const translations = {
       formSend: "發送訊息",
       formSending: "發送中...",
       formSuccess: "訊息已發送！我會盡快回覆您。",
-      designedBy: "由 ZEYU 設計開發 © 2026",
+      designedBy: "由 則宇 設計開發 © 2026",
       aiTip: "有問題嗎？可以使用下方的 AI 助手按鈕用您的語言與我對話。"
     }
   },
@@ -146,24 +120,23 @@ export const translations = {
       contact: "03. Contacto"
     },
     hero: {
-      available: "Disponible para Prácticas de Verano",
-      name: "ZEYU.",
-      role: "Desarrollador Creativo",
-      desc: "Un desarrollador de 19 años creando experiencias digitales hermosas y funcionales. Construyendo puentes entre el diseño y la ingeniería."
+      available: "Buscando Oportunidades de Prácticas Marítimas",
+      name: "則宇.",
+      role: "Estudiante de Ingeniería Marina",
+      desc: "Un estudiante dedicado de cuarto año de Ingeniería Marina con pasión por el océano y la navegación. Comprometido con la excelencia en las operaciones marítimas."
     },
     about: {
       subtitle: "01. Sobre Mí",
       title: "Antecedentes y Educación",
-      p1: "¡Hola! Soy Zeyu, un estudiante de ciencias de la computación de 19 años profundamente apasionado por las tecnologías web y la inteligencia artificial. Disfruto construir aplicaciones que viven en internet, centrándome en código limpio y un diseño perfecto al píxel.",
-      p2: "Mi viaje hacia la tecnología comenzó cuando me di cuenta de que con el código podía dar vida a las ideas en mi cabeza. Desde entonces, no he dejado de aprender y experimentar.",
+      p1: "¡Hola! Soy Zeyu Lai, estudiante de cuarto año del Departamento de Ingeniería Marina. He estado profundamente interesado en el océano y el trabajo marítimo desde que era niño.",
+      p2: "Elegí estudiar en un departamento relacionado con el mar, con la esperanza de convertirme en un excelente marinero en el futuro.",
+      p3: "Esta experiencia me ha brindado una comprensión más profunda del trabajo en equipo y la disciplina entre los miembros de la tripulación, y ha cultivado mi calma y sentido de responsabilidad al enfrentar desafíos.",
+      p4: "Tengo una personalidad alegre, soy amable con los demás y puedo llevarme armoniosamente con personas de diferentes orígenes. Creo firmemente que la buena comunicación y el trabajo en equipo son elementos indispensables en el trabajo marítimo.",
       academicLife: "Vida Académica",
-      uni: "Universidad Nacional de Tecnología",
-      degree: "Licenciatura en Informática / 2023 - 2027",
+      uni: "Universidad Nacional de Ciencia y Tecnología de Kaohsiung",
+      degree: "Ingeniería Marina / 4° Año",
       interests: "Intereses y Aficiones",
       hobbies: [
-        { label: "Código Abierto", desc: "Contribuciones a React" },
-        { label: "Fotografía", desc: "Callejera y Arquitectura" },
-        { label: "Experimentos de IA", desc: "Jugando con LLMs" },
         { label: "Viajes", desc: "Explorando nuevas culturas" }
       ]
     },
@@ -172,22 +145,10 @@ export const translations = {
       title: "Proyectos Destacados",
       projects: [
         {
-          title: "Nova AI Analytics",
-          description: "Un panel de control para visualizar el rendimiento de modelos de IA. Construido con React, Tailwind y D3.js.",
-          tech: ["React", "TypeScript", "D3.js", "Tailwind"],
-          year: "2024"
-        },
-        {
-          title: "Flow State Music",
-          description: "Un temporizador Pomodoro minimalista integrado con ritmos lo-fi, diseñado para desarrolladores.",
-          tech: ["Next.js", "Framer Motion", "Supabase"],
-          year: "2023"
-        },
-        {
-          title: "Lingo Chatbot",
-          description: "Agente de traducción multilingüe usando la API de Gemini para conversaciones en tiempo real.",
-          tech: ["Vite", "Gemini API", "Tailwind"],
-          year: "2024"
+          title: "Experimentos de IA",
+          description: "Explorando la intersección de la ingeniería marina y la inteligencia artificial a través del modelado 3D y la generación de imágenes.",
+          tech: ["Tripo AI", "Generative AI", "3D Modeling"],
+          year: "2026"
         }
       ],
       viewProject: "Ver Proyecto"
@@ -204,7 +165,7 @@ export const translations = {
       formSend: "Enviar Mensaje",
       formSending: "Enviando...",
       formSuccess: "¡Mensaje enviado! Te responderé pronto.",
-      designedBy: "Diseñado y Desarrollado por ZEYU © 2026",
+      designedBy: "Diseñado y Desarrollado por 則宇 © 2026",
       aiTip: "Pregúntale a mi asistente de IA usando el botón abajo para obtener respuestas en cualquier idioma."
     }
   }

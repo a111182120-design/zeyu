@@ -103,7 +103,6 @@ function SectionHeading({ title, subtitle }: { title: string, subtitle: string }
 function About() {
   const { t } = useLang();
   const [showTravelLog, setShowTravelLog] = useState(false);
-  const [showAiLog, setShowAiLog] = useState(false);
   
   return (
     <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto relative z-20 border-b border-slate-200 bg-slate-50" id="about">
@@ -118,6 +117,8 @@ function About() {
         >
           <p>{t.about.p1}</p>
           <p>{t.about.p2}</p>
+          {('p3' in t.about) && <p>{(t.about as any).p3}</p>}
+          {('p4' in t.about) && <p>{(t.about as any).p4}</p>}
           
           <div className="mt-8 pt-8 border-t border-slate-200">
             <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-4 flex items-center gap-2">
@@ -139,30 +140,17 @@ function About() {
           transition={{ delay: 0.2 }}
         >
            <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-4">{t.about.interests}</h4>
-           <div className="grid grid-cols-2 gap-4">
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
              {t.about.hobbies.map((hobby, i) => {
-               const icons = [Code2, Camera, Sparkles, Compass];
+               const icons = [Compass, Sparkles];
                const Icon = icons[i % icons.length];
-               if (i === 2) {
-                 return (
-                   <div 
-                     key={i} 
-                     onClick={() => setShowAiLog(true)}
-                     className="block p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl cursor-pointer group"
-                   >
-                     <Icon size={24} className="text-slate-400 mb-6 group-hover:text-indigo-600 transition-colors" />
-                     <div className="text-sm font-bold text-slate-900 mb-1">{hobby.label}</div>
-                     <div className="text-[10px] uppercase tracking-widest text-slate-500">{hobby.desc}</div>
-                   </div>
-                 )
-               }
                return (
                  <div 
                    key={i} 
                    onClick={() => {
-                     if (i === 3) setShowTravelLog(true);
+                     setShowTravelLog(true);
                    }}
-                   className={`p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl ${i === 3 ? 'cursor-pointer' : 'cursor-default'} group`}
+                   className="p-6 bg-white border border-slate-200 transition-shadow hover:shadow-xl cursor-pointer group"
                  >
                    <Icon size={24} className="text-slate-400 mb-6 group-hover:text-indigo-600 transition-colors" />
                    <div className="text-sm font-bold text-slate-900 mb-1">{hobby.label}</div>
@@ -173,63 +161,6 @@ function About() {
            </div>
         </motion.div>
       </div>
-
-      {/* AI Log Modal */}
-      <AnimatePresence>
-        {showAiLog && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm"
-            onClick={() => setShowAiLog(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white border border-slate-200 w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl"
-            >
-              <div className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-200 p-4 flex justify-between items-center z-10">
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-900">AI Experiments</div>
-                <button onClick={() => setShowAiLog(false)} className="p-2 text-slate-500 hover:text-slate-900 transition-colors bg-slate-100 hover:bg-slate-200 rounded-sm">
-                  <X size={16} />
-                </button>
-              </div>
-              
-              <div className="p-6 md:p-8 space-y-12">
-                <div>
-                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">Generated 3D Models</h4>
-                  <div className="flex flex-col md:flex-row gap-4 mb-8">
-                     <a 
-                       href="https://studio.tripo3d.ai/3d-model/30f2f39a-da0d-44a0-a461-8ee9efc5c434?invite_code=XWYJ38"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
-                     >
-                       <Terminal size={16} /> Tripo 3D Model 1
-                     </a>
-                     <a 
-                       href="https://studio.tripo3d.ai/workspace/generate/5530e958-367b-4e90-b641-df33e2fe95ea"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
-                     >
-                       <Sparkles size={16} /> Tripo 3D Model 2
-                     </a>
-                  </div>
-                  
-                  <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">AI Image Reference</h4>
-                  <div className="border border-slate-200 rounded-sm bg-slate-50 overflow-hidden flex justify-center items-center">
-                    <img src={aiImg} alt="AI Experiment Reference" className="max-w-full max-h-[600px] object-contain" />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Travel Log Modal */}
       <AnimatePresence>
@@ -363,7 +294,11 @@ function Portfolio() {
           >
             <div className={`h-64 md:h-[320px] bg-slate-100 border border-slate-200 grayscale overflow-hidden relative flex flex-col items-center justify-center ${index % 2 === 1 ? 'md:order-2' : ''} group-hover:grayscale-0 transition-all duration-500`}>
               <div className="absolute inset-0 bg-indigo-600/5 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Terminal size={48} className="text-slate-300 absolute group-hover:scale-110 transition-transform duration-500 group-hover:text-indigo-300" />
+              {index === 0 ? (
+                <img src={aiImg} alt="AI Experiment" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              ) : (
+                <Terminal size={48} className="text-slate-300 absolute group-hover:scale-110 transition-transform duration-500 group-hover:text-indigo-300" />
+              )}
             </div>
             
             <div className={`flex flex-col justify-center gap-2 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
@@ -410,7 +345,11 @@ function Portfolio() {
               
               <div className="p-8 md:p-12">
                 <div className="h-64 sm:h-96 w-full bg-slate-100 border border-slate-200 flex items-center justify-center relative overflow-hidden mb-12">
-                  <Terminal size={64} className="text-slate-300" />
+                  {selectedProject === 0 ? (
+                    <img src={aiImg} alt="AI Experiment" className="w-full h-full object-cover" />
+                  ) : (
+                    <Terminal size={64} className="text-slate-300" />
+                  )}
                   <div className="absolute bottom-4 right-4 bg-white px-3 py-1 text-[10px] font-bold tracking-widest text-slate-500 uppercase border border-slate-200 shadow-sm">
                     {projects[selectedProject].year}
                   </div>
@@ -423,10 +362,33 @@ function Portfolio() {
                       <p className="text-sm text-slate-600 leading-relaxed">
                         {projects[selectedProject].description} 
                       </p>
-                      <p className="text-sm text-slate-600 leading-relaxed">
-                        This project was built from the ground up focusing on performance and scalability.
-                        The architecture relies heavily on modern frontend tools allowing a highly optimized user experience.
-                      </p>
+                      {selectedProject === 0 ? (
+                        <div className="space-y-6">
+                          <div className="flex flex-col sm:flex-row gap-4">
+                            <a 
+                              href="https://studio.tripo3d.ai/3d-model/30f2f39a-da0d-44a0-a461-8ee9efc5c434?invite_code=XWYJ38"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
+                            >
+                              <Terminal size={16} /> Tripo 3D Model 1
+                            </a>
+                            <a 
+                              href="https://studio.tripo3d.ai/workspace/generate/5530e958-367b-4e90-b641-df33e2fe95ea"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors"
+                            >
+                              <Sparkles size={16} /> Tripo 3D Model 2
+                            </a>
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                          This project was built from the ground up focusing on performance and scalability.
+                          The architecture relies heavily on modern frontend tools allowing a highly optimized user experience.
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div>
@@ -612,7 +574,7 @@ export default function App() {
         <nav className="fixed top-0 w-full z-40 bg-white/90 backdrop-blur-sm border-b border-slate-200 py-6 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-indigo-600 rounded-full"></div>
-            <span className="font-bold tracking-widest text-sm uppercase text-slate-900">ZEYU / 2026</span>
+            <span className="font-bold tracking-widest text-sm uppercase text-slate-900">則宇 / 2026</span>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6 text-[11px] font-bold uppercase tracking-tighter">
