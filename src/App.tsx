@@ -191,6 +191,14 @@ function About() {
                 <div>
                   <h4 className="text-[10px] uppercase font-black text-indigo-600 tracking-widest mb-6">Cinematic Memories</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="md:col-span-2 bg-slate-100 border border-slate-200 rounded-sm overflow-hidden aspect-video relative group flex items-center justify-center hover:shadow-xl transition-shadow">
+                      <iframe 
+                        src="https://drive.google.com/file/d/15jl8RyohvePyGvpocYjx4OEBpFVblXNB/preview" 
+                        className="absolute inset-0 w-full h-full border-0 bg-black"
+                        allow="autoplay"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
                     {[video1, video2, video3, video4].map((videoSrc, idx) => (
                       <div key={idx} className="bg-slate-100 border border-slate-200 rounded-sm overflow-hidden aspect-video relative group flex items-center justify-center">
                         <video 
